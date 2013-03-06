@@ -840,7 +840,7 @@ class Leaderboard
       data[:score] = responses[index * 2 + 1].to_f if responses[index * 2 + 1]
 
       if leaderboard_options[:with_member_data]
-        data[:member_data] = member_data_for_in(leaderboard_name, member)
+        data[:member_data] = JSON.parse(member_data_for_in(leaderboard_name, member))
       end
 
       ranks_for_members << data
