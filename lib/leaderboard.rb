@@ -13,11 +13,14 @@ class Leaderboard
     :reverse => false
   }
 
-  # Default Redis host: localhost
-  DEFAULT_REDIS_HOST = 'localhost'
-
-  # Default Redis post: 6379
-  DEFAULT_REDIS_PORT = 6379
+  if !ENV["REDISTOGO_URL"].blank?
+    uri = URI.parse(ENV["REDISTOGO_URL"])
+    DEFAULT_REDIS_HOST = uri.host
+    DEFAULT_REDIS_PORT = uri.port
+  else
+    DEFAULT_REDIS_HOST = 'localhost'
+    DEFAULT_REDIS_PORT = 6379
+  end
 
   # Default Redis options when creating a connection to Redis. The
   # +DEFAULT_REDIS_HOST+ and +DEFAULT_REDIS_PORT+ will be passed.
