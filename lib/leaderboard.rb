@@ -17,6 +17,7 @@ class Leaderboard
     uri = URI.parse(ENV["REDISTOGO_URL"])
     DEFAULT_REDIS_HOST = uri.host
     DEFAULT_REDIS_PORT = uri.port
+    DEFAULT_REDIS_PASSWORD = uri.password
   else
     DEFAULT_REDIS_HOST = 'localhost'
     DEFAULT_REDIS_PORT = 6379
@@ -26,7 +27,8 @@ class Leaderboard
   # +DEFAULT_REDIS_HOST+ and +DEFAULT_REDIS_PORT+ will be passed.
   DEFAULT_REDIS_OPTIONS = {
     :host => DEFAULT_REDIS_HOST,
-    :port => DEFAULT_REDIS_PORT
+    :port => DEFAULT_REDIS_PORT,
+    :password =>DEFAULT_REDIS_PASSWORD
   }
 
   # Default options when requesting data from a leaderboard.
