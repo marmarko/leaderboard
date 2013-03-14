@@ -21,6 +21,7 @@ class Leaderboard
   else
     DEFAULT_REDIS_HOST = 'localhost'
     DEFAULT_REDIS_PORT = 6379
+    DEFAULT_REDIS_PASSWORD = nil
   end
 
   # Default Redis options when creating a connection to Redis. The
